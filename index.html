@@ -11,11 +11,16 @@
             align-items: center;
             height: 100%;
         }
-        .all {
+        .mao,.xi {
             display: flex;
             flex-direction: column;
+            margin: 40px;
         }
-        .all > div,a {
+        .mao,.xi > div {
+            display: flex;
+            /* flex-direction: ; */
+        }
+        .mao,.xi > div,a {
             font-size: 40px;
         }
         a {
@@ -26,6 +31,7 @@
             padding: 10px;
             text-decoration: none;
             transition: 0.5s;
+            margin: 10px;
         }
         a:hover {
             background: #b0bcd2;
@@ -36,8 +42,8 @@
         .ab {
             position: absolute;
             right: 30%;
-            bottom: 5%;
-            font-size: 20px;
+            bottom: 1%;
+            font-size: 10px;
         }
         .ab > .right {
             text-align: right;
@@ -45,11 +51,18 @@
     </style>
 </head>
 <body>
-    <div class="all">
+    <div class="mao">
         <div>↓↓↓↓↓↓↓↓↓↓↓↓</div>
-        <a href="/毛概预题库.docx">下载</a>
+        <a href="/毛概预题库.docx">毛概下载</a>
         <div>↑↑↑↑↑↑↑↑↑↑↑↑</div>
     </div>
+    <div class="xi">
+        <div>↓↓↓↓↓↓↓↓↓↓↓↓</div>
+        <a href="/习概预题库1.docx">习概1下载</a>
+        <a href="/习概预题库2.docx">习概2下载</a>
+        <div>↑↑↑↑↑↑↑↑↑↑↑↑</div>
+    </div>
+
     <div class="ab"><div>From Github Host Page</div> <div class="right">SArZn-code</div></div>
 </body>
 </html>

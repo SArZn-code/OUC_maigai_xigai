@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup as BS
 import json
 
 def main():
-    file = open('E:/桌面/毛概/all_link.txt','a', encoding='utf-8')
+    file = open('E:/桌面/毛概/all_link.txt','w', encoding='utf-8')
     json1 = open('E:/桌面/毛概/毛概预题库.json','w+',encoding='utf-8')
 
     url = 'https://wlkc.ouc.edu.cn/webapps/gradebook/do/student/viewAttempts?method=list&course_id=_25851_1&outcome_definition_id=_173599_1&outcome_id=_3984061_1&takeTestContentId=_1136732_1&maxAttemptsReached=false'
