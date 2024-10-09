@@ -7,10 +7,9 @@ def main():
     json1 = open('E:/桌面/毛概/毛概预题库.json','w+',encoding='utf-8')
 
     url = 'https://wlkc.ouc.edu.cn/webapps/gradebook/do/student/viewAttempts?method=list&course_id=_25851_1&outcome_definition_id=_173599_1&outcome_id=_3984061_1&takeTestContentId=_1136732_1&maxAttemptsReached=false'
-    useragent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0'
     header = {
-        'User-Agent': useragent,
-        'cookie': 'JSESSIONID=4D24DCC0C303C59C28B1D5AA87DA352C; identifyId=d90f9a462eef4cc1bf865aatywerwe23; CdnSignedValidation=false; BbClientCalenderTimeZone=Asia/Shanghai; BbClientDownloadExecuting=false; web_client_cache_guid=fe51ccf3-7833-4b6b-bcec-fe3732f0aa44; COOKIE_CONSENT_ACCEPTED=true; s_session_id=4CD41B115963B694634CBE1C2B4C24DE'
+        'User-Agent': '##YOUR_USER-AGENT',
+        'cookie': '##YOUR-COOKIE'
     }
     text = requests.get(url, headers=header).text
 
