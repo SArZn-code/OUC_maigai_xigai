@@ -12,10 +12,9 @@ def main():
     url_list = [url_first, url_second]
     num_list = [117,108]
     for url in range(0,len(url_list)):
-        useragent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0'
         header = {
-            'User-Agent': useragent,
-            'cookie': 'JSESSIONID=11EE68C54BB6409488B3C2A709E87A48; identifyId=d90f9a462eef4cc1bf865aatywerwe23; CdnSignedValidation=false; BbClientCalenderTimeZone=Asia/Shanghai; BbClientDownloadExecuting=false; web_client_cache_guid=fe51ccf3-7833-4b6b-bcec-fe3732f0aa44; COOKIE_CONSENT_ACCEPTED=true; s_session_id=B31A5599F2C9302EC4C98AAC4B5FE98F'
+            'User-Agent': '#YOUR_USER_AGENT',
+            'cookie': '#YOUR_COOKIE'
         }
         text = requests.get(url_list[url], headers=header).text
         print('第%s套开始统计\n%s' %(url+1, '*'*100))
