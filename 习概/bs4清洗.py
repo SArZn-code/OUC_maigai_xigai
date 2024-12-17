@@ -156,7 +156,7 @@ def main():
                 # if multiple_num < multiple:
                 #     print(f'多选: %3d < %3d, 还剩%2d道题' %(multiple_num,multiple,multiple-multiple_num))
             else:
-                print('**出现问题**')
+                print('*出现问题*')
                 
                 # 未知
                 # if single_num > single:
@@ -165,8 +165,10 @@ def main():
                 #     print(f'多选: {multiple_num} > {multiple}, 超出{multiple_num-multiple}道题')
 
         else:
-            len(data) == all
-            print('收集完成')
+            if len(data) == all:
+                print('收集完成')
+            else: 
+                print('**出现问题**')
         
         print('\n'*3)
 
