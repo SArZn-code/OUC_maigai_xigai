@@ -148,7 +148,7 @@ def main():
             if tf_num < tf:
                 print(f'判断: %3d < %3d, 还剩%2d道题' %(tf_num,tf,tf-tf_num))
         else:
-            print('**出现问题**')
+            print('*出现问题*')
             if single_num > single:
                 print(f'单选: {single_num} > {single}, 超出{single_num-single}道题')
             if multiple_num > multiple:
@@ -156,8 +156,10 @@ def main():
             if tf_num > tf:
                 print(f'判断: {tf_num} > {tf}, 超出{tf_num-tf}道题')
     else:
-        len(data) == all and single_num == single and multiple_num == multiple and tf_num == tf
-        print('收集完成')
+        if len(data) == all and single_num == single and multiple_num == multiple and tf_num == tf: 
+            print('收集完成')
+        else:
+            print('**出现问题**')
 
 if __name__=='__main__':
     main()
