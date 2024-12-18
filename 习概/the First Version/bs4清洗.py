@@ -73,8 +73,7 @@ def main():
                 # print(td_ques)
                 # print('-'*70)
 
-                # td_tr_all = tr[2].find_all('tr') > 原来的
-                td_tr_all = tr[2]
+                td_tr_all = tr[2].find_all('tr') > 原来的
                 
                 check_num = 0
                 for i in range(0,len(td_tr_all)):
