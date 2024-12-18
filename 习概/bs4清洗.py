@@ -83,7 +83,7 @@ def main():
                         check = check_tag.text
                     except:
                         pass
-                    if check == '答案：':
+                    if check == '正确答案：':
                         check_num = 1
 
 
