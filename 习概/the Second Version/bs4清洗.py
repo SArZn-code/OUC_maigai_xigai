@@ -6,11 +6,11 @@ def main():
     file = open('E:/桌面/习概/all_link.txt','w', encoding='utf-8')
     json_file = open('E:/桌面/习概/习概预题库.json','w+',encoding='utf-8')
 
-    url = 'https://wlkc.ouc.edu.cn/webapps/gradebook/do/student/viewAttempts?method=list&course_id=_28725_1&outcome_definition_id=_188406_1&outcome_id=_4279031_1&takeTestContentId=_1236882_1&maxAttemptsReached=false'
+    url = 'xxx'
 
     header = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0',
-        'cookie': 'JSESSIONID=A9935561980D8105AD7A4552E0D0A9F7; identifyId=d90f9a462eef4cc1bf865aatywerwe23; COOKIE_CONSENT_ACCEPTED=true; CdnSignedValidation=false; BbClientCalenderTimeZone=Asia/Shanghai; BbClientDownloadExecuting=false; JSESSIONID=2E231BAB34676FC3FF1A1D9A959D59CB; web_client_cache_guid=e0afa752-894d-44a3-8d49-293e9c81b85d; s_session_id=AF31619E51E4EB65521E3FB8FAB1BE39'
+        'User-Agent': 'xxx',
+        'cookie': 'xxxx'
     }
     text = requests.get(url, headers=header).text
 
