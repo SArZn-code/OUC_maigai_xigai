@@ -6,11 +6,11 @@ def main():
     file = open('E:/桌面/习概/all_link.txt','w', encoding='utf-8')
     json_file = open('E:/桌面/习概/习概预题库.json','w+',encoding='utf-8')
 
-    url = ''
+    url = 'https://wlkc.ouc.edu.cn/webapps/gradebook/do/student/viewAttempts?method=list&course_id=_28725_1&outcome_definition_id=_188406_1&outcome_id=_4279031_1&takeTestContentId=_1236882_1&maxAttemptsReached=false'
 
     header = {
-        'User-Agent': '###',
-        'cookie': '####'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0',
+        'cookie': 'JSESSIONID=A9935561980D8105AD7A4552E0D0A9F7; identifyId=d90f9a462eef4cc1bf865aatywerwe23; COOKIE_CONSENT_ACCEPTED=true; CdnSignedValidation=false; BbClientCalenderTimeZone=Asia/Shanghai; BbClientDownloadExecuting=false; JSESSIONID=2E231BAB34676FC3FF1A1D9A959D59CB; web_client_cache_guid=e0afa752-894d-44a3-8d49-293e9c81b85d; s_session_id=AF31619E51E4EB65521E3FB8FAB1BE39'
     }
     text = requests.get(url, headers=header).text
 
@@ -35,7 +35,6 @@ def main():
     num = 0
     for i in link:
         num += 1
-
         url_i = 'https://wlkc.ouc.edu.cn' + i
         text_i = requests.get(url_i, headers=header).text
         soup_i = BS(text_i,'html.parser')
@@ -45,37 +44,29 @@ def main():
         all_li = ul.find_all('li')
         for li in all_li:
             L = []
-            div = li.select_one('.details')
-            table = div.find('table')
-            tr = table.find_all('tr')
+            div = li.select_one('.details',recursive=False)
+            table = div.find('table',recursive=False,attrs={"width":"100%"})
+            tr = table.find_all('tr',recursive=False)
             td_1 = tr[1].find_all('td')
             td_ques_pre = td_1[1].find('div')
 
             td_ques = td_ques_pre.text
 
-            td_tr_all = tr[2]
-            # print(f'{td_tr_all.text}')
-            check_num = 0
+            #  for i in tr[2:]:
+            td = tr[2].find_all('td',attrs={"valign":"top"})
+            # table_td = td.find('table',recursive=False)
+            # tr_all = table_td.find_all('tr',recursive=False)
 
-            check_tag = td_tr_all.find_all('td')[0].find('span')
-            try:
-                check = check_tag.text
-            except:
-                pass
-            if check == '正确答案：':
-                check_num = 1
+            Len_tr_all = len(td)
 
 
-            if check_num == 0:
-                continue
-            else:
-                td_text = td_tr_all.find_all('td')[-1]
-                div = td_text.find('div')
-                ans_all = div.find_all('span')
+            for i in range(2,Len_tr_all):
+                # td_tr_all = tr_all[i].find_all('td',recursive=False)
+
+                ans_all = td[i].find_all('span')
 
                 ans_span = ans_all[-1]
-                i_label = ans_span.find('div')
-                i_text = i_label.find('label').text.strip()
+                i_text = ans_span.find('label').text.strip()
 
                 tf_span = ans_all[0]
                 img = tf_span.find('img')
@@ -83,12 +74,12 @@ def main():
                     i_text += '√'
                 
                 L.append(i_text)
-                #正式
-                # print(i_text)
-                    
-            #正式
-            # print('<'*70)
-            # print('\n')
+
+            
+            if len(tr) > 3:
+                for tr_i in tr[3:]:
+                    i_text = tr_i.find('label').text.strip()
+                    L.append(i_text + '√')
 
             data[td_ques] = L
             # break
