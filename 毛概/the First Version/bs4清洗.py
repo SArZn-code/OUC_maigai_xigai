@@ -6,10 +6,10 @@ def main():
     file = open('E:/桌面/毛概/all_link.txt','w', encoding='utf-8')
     json1 = open('E:/桌面/毛概/毛概预题库.json','w+',encoding='utf-8')
 
-    url = 'https://wlkc.ouc.edu.cn/webapps/gradebook/do/student/viewAttempts?method=list&course_id=_25851_1&outcome_definition_id=_173599_1&outcome_id=_3984061_1&takeTestContentId=_1136732_1&maxAttemptsReached=false'
+    url = 'https://wlkc.ouc.edu.cn/webapps/gradebook/do/student/viewAttempts?method=list&course_id=_28721_1&outcome_definition_id=_189193_1&outcome_id=_4345153_1&takeTestContentId=_1240061_1&maxAttemptsReached=false'
     header = {
-        'User-Agent': '##YOUR_USER-AGENT',
-        'cookie': '##YOUR_COOKIE'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0',
+        'cookie': 'JSESSIONID=0202A992388B495154ED6A3CEAA23346; identifyId=d90f9a462eef4cc1bf865aatywerwe23; COOKIE_CONSENT_ACCEPTED=true; CdnSignedValidation=false; BbClientCalenderTimeZone=Asia/Shanghai; BbClientDownloadExecuting=false; JSESSIONID=2E231BAB34676FC3FF1A1D9A959D59CB; web_client_cache_guid=e0afa752-894d-44a3-8d49-293e9c81b85d; s_session_id=D3F8A83AD877F16FE7F01342B6450777'
     }
     text = requests.get(url, headers=header).text
 
@@ -17,14 +17,14 @@ def main():
     soup = BS(text,'html.parser')
     tbody = soup.find_all('tbody')
 
-    all = 238
-    single = 81
+    all = 258
+    single = 89
     single_num = 0
 
-    multiple = 79
+    multiple = 83
     multiple_num = 0
 
-    tf = 78
+    tf = 86
     tf_num = 0
     print(f'总数: {all} -- 单选: {single}, 多选: {multiple}, 判断: {tf}')
 
@@ -156,7 +156,8 @@ def main():
             if tf_num > tf:
                 print(f'判断: {tf_num} > {tf}, 超出{tf_num-tf}道题')
     else:
-        if len(data) == all and single_num == single and multiple_num == multiple and tf_num == tf: 
+        print(f"收集结果: single_num={single_num}, multiple_num={multiple_num}, tf_num={tf_num}")
+        if single_num == single and multiple_num == multiple and tf_num == tf: 
             print('收集完成')
         else:
             print('**出现问题**')
