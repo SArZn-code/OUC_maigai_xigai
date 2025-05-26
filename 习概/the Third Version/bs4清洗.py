@@ -8,11 +8,11 @@ def main():
     file = open('E:/桌面/xigai/all_link.txt','w', encoding='utf-8')
     json_file = open('E:/桌面/xigai/习概预题库.json','w+',encoding='utf-8')
 
-    url = 'xxx'
+    url = 'https://wlkc.ouc.edu.cn/webapps/gradebook/do/student/viewAttempts?method=list&course_id=_31237_1&outcome_definition_id=_201669_1&outcome_id=_4599508_1&takeTestContentId=_1316838_1&maxAttemptsReached=false'
 
     header = {
-        'User-Agent': 'xxx',
-        'cookie': 'xxx'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0',
+        'cookie': 'JSESSIONID=38D52DF22DACC4D333D97A7C53DC15A2; CdnSignedValidation=false; BbClientCalenderTimeZone=Asia/Shanghai; BbClientDownloadExecuting=false; identifyId=d90f9a462eef4cc1bf865aatywerwe23; JSESSIONID=9546955A95D9797C58D5DA9362D8970D; web_client_cache_guid=5b6e2a18-7531-482d-af6a-d0161bfc9329; COOKIE_CONSENT_ACCEPTED=true; s_session_id=6AF44E2C9F98AE26184D0D6088835698'
     }
     text = requests.get(url, headers=header).text
 
@@ -111,6 +111,8 @@ def main():
     
     print(statistics)
     plt.plot(range(0,len(link)),statistics)
+    plt.xlim(-10,120)
+    plt.ylim(0,200)
     plt.show()
 
 
