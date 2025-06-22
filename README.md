@@ -24,3 +24,6 @@ selenium模拟点击刷试卷 (大约100套) --> request下载试卷 --> bs4数�
 # 2024年下半年
 ## 毛概直接用
 ## 习概已更新到Second Version
+
+# 2025年上半年
+## 习概已更新到Third Version
